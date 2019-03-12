@@ -1,0 +1,17 @@
+apiVersion: tenancy.k8s.io/v1alpha1
+kind: Tenant
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: tenant-sample
+spec:
+  # Add fields here
+  namespaces:
+    - name: “hr-backend”
+      externalName: “depts/hr/production/backend”
+    - name: “hr-frontend”
+      externalName: “depts/hr/production/frontend”
+  users:
+    - name: “alice”
+      roles:
+        - “owner”
